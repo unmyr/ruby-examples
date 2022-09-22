@@ -54,6 +54,50 @@ It is 500 yen for 3 apples.
 
 === Array
 
+* Make array
++
+[source,ruby]
+----
+irb(main):001:0> [1, 2, 3]
+=> [1, 2, 3]
+irb(main):002:0> [1, 2, 3].class
+=> Array
+----
+* Reverse array
++
+[source,ruby]
+----
+irb(main):001:0> [1, 2, 3].reverse
+=> [3, 2, 1]
+----
+
+* Check if a list contains a certain element
++
+[source,ruby]
+----
+irb(main):001:0> ['apple', 'banana', 'peach'].include?('apple')
+=> true
+irb(main):002:0> ['apple', 'banana', 'peach'].include?('orange')
+=> false
+----
+
+* Filter List Elements
++
+[source,ruby]
+----
+irb(main):001:0> fruits = ['apple', 'banana', 'peach', 'pineapple']
+irb(main):002:0> fruits.grep(/apple/)
+=> ["apple", "pineapple"]
+irb(main):003:0> fruits.select{|item| item.include?('apple')}
+=> ["apple", "pineapple"]
+----
++
+[source,console]
+----
+$ ruby -e "puts %x(free).split(/\n/).grep(/^Mem:/)"
+Mem:       12319920     5731480     6359088       17720      229352     6454708
+----
+
 * How to "zip" two arrays into hash
 +
 [source,ruby]
@@ -67,6 +111,21 @@ p header.zip(memory).to_h
 .Results
 ----
 {"total"=>12319920, "used"=>5489508, "free"=>6601060}
+----
+
+=== Hardware
+
+* free memory
++
+[source,ruby]
+----
+p %w(total used free shared buff/cache available).zip(%x(free).split(/\n/).grep(/^Mem:/).first().split()[1..]).to_h
+----
++
+[source,ruby]
+.Results
+----
+{"total"=>"12319920", "used"=>"6319000", "free"=>"5771568", "shared"=>"17720", "buff/cache"=>"229352", "available"=>"5867188"}
 ----
 
 === References
