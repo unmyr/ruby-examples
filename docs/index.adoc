@@ -1,0 +1,76 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+endif::[]
+
+include::header.adoc[]
+
+== Ruby
+
+=== Format strings
+
+* String Interpolation
++
+[source,ruby]
+----
+item = 'apple'
+price = 500
+puts "It is #{price} yen for 3 #{item}s."
+----
++
+[source,plaintext]
+.Results
+----
+It is 500 yen for 3 apples.
+----
+
+* Using Format Specifiers
++
+[source,ruby]
+----
+item = 'apple'
+price = 500
+puts "It is %d yen for 3 %ss." % [price, item]
+----
++
+[source,plaintext]
+.Results
+----
+It is 500 yen for 3 apples.
+----
+
+* Using Named Arguments
++
+[source,ruby]
+----
+puts "It is %{price} yen for 3 %{item}s." % {item: 'apple', price: 500}
+----
++
+[source,plaintext]
+.Results
+----
+It is 500 yen for 3 apples.
+----
+
+=== Array
+
+* How to "zip" two arrays into hash
++
+[source,ruby]
+----
+header = %w(   total        used        free)
+memory = %w(12319920     5489508     6601060).map(&:to_i)
+p header.zip(memory).to_h
+----
++
+[source,ruby]
+.Results
+----
+{"total"=>12319920, "used"=>5489508, "free"=>6601060}
+----
+
+=== References
+
+// tag::reference[]
+// end::reference[]
+

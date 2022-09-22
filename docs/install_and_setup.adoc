@@ -1,0 +1,14 @@
+ifndef::leveloffset[]
+:toc: left
+:toclevels: 3
+:icons: font
+endif::[]
+
+include::header.adoc[]
+
+== Install and setup
+
+=== References
+
+// tag::reference[]
+// end::reference[]
