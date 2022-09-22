@@ -18,6 +18,9 @@
   },
   "ruby.format": "rubocop",
   "cSpell.words": [
-    "rubocop"
+    "adocbuild",
+    "leveloffset",
+    "rubocop",
+    "tonynv"
   ]
 }
