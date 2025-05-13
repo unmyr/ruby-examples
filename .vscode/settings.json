@@ -18,6 +18,7 @@
   },
   "ruby.format": "rubocop",
   "cSpell.words": [
+    "adoc",
     "adocbuild",
     "leveloffset",
     "rubocop",
